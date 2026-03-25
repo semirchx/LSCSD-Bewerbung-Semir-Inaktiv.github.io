@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LSCSD // Bewerbung Sheriff of County</title>
+  <meta name="description" content="Bewerbung als Sheriff of County – Semir Inaktiv #97148" />
+  <style>
+    :root {
+      --bg: #0e100f;
+      --bg-soft: #151917;
+      --panel: rgba(23, 27, 24, 0.94);
+      --panel-2: rgba(31, 37, 33, 0.96);
+      --text: #f3eddc;
+      --muted: #c8bea1;
+      --accent: #c6a96b;
+      --accent-soft: #e1cf9e;
+      --accent-dark: #7a6335;
+      --olive: #6f7756;
+      --olive-dark: #4f5640;
+      --brown: #4c3d2c;
+      --line: rgba(198, 169, 107, 0.24);
+      --success: #97b27b;
+      --danger: #b57d6b;
+      --radius: 18px;
+      --shadow: 0 10px 35px rgba(0,0,0,0.35);
+      --glow: 0 0 24px rgba(198, 169, 107, 0.10);
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(198,169,107,0.10), transparent 32%),
+        linear-gradient(180deg, #0b0d0c 0%, #111412 100%);
+      color: var(--text);
+      line-height: 1.6;
+      letter-spacing: 0.15px;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(10, 12, 11, 0.84);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand { display: flex; flex-direction: column; gap: 2px; }
+    .brand-kicker {
+      font-size: 11px;
+      color: var(--accent-soft);
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+    }
+    .nav { display: flex; flex-wrap: wrap; gap: 10px; }
+    .nav a {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+    .nav a:hover {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(198, 169, 107, 0.08);
+    }
+    .hero {
+      padding: 72px 0 34px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .hero-card, .panel {
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow), var(--glow);
+    }
+    .hero-card {
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -60px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(198,169,107,0.12), transparent 68%);
+      pointer-events: none;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.04;
+      letter-spacing: -1.2px;
+    }
+    .hero-sub {
+      margin: 0;
+      color: var(--muted);
+      max-width: 64ch;
+      font-size: 16px;
+    }
+    .hero-actions {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s ease;
+      border: 1px solid var(--line);
+    }
+    .btn-primary {
+      background: linear-gradient(180deg, rgba(198,169,107,0.18), rgba(198,169,107,0.10));
+      color: var(--text);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(180deg, rgba(198,169,107,0.24), rgba(198,169,107,0.14));
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.02);
+      color: var(--muted);
+    }
+    .btn-secondary:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+    .mini-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--accent-soft);
+      margin-bottom: 4px;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .stat {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(198,169,107,0.12);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      color: var(--accent-soft);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .section { padding: 32px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .section-kicker {
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      margin: 0;
+      font-size: clamp(24px, 3.2vw, 38px);
+      line-height: 1.1;
+    }
+    .section-note {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 52ch;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .grid-4{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      grid-auto-rows: max-content;
+      align-items: start;
+    }
+    .panel { padding: 22px; }
+    .panel h3 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      color: var(--accent-soft);
+    }
+    .dept-card {
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+    .dept-card:hover,
+    .dept-card:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(198,169,107,0.46);
+      box-shadow: var(--shadow), 0 0 0 2px rgba(198,169,107,0.22);
+    }
+    .dept-hint {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.62);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 1000;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal {
+      width: min(680px, 100%);
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .modal-title {
+      margin: 0;
+      color: var(--accent-soft);
+      font-size: clamp(20px, 3.5vw, 28px);
+      line-height: 1.1;
+    }
+    .modal-close {
+      min-height: 38px;
+      min-width: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .modal-body {
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .meta-list, .bullet-list, .rank-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .meta-list li, .bullet-list li, .rank-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(198,169,107,0.10);
+    }
+    .meta-list li:last-child, .bullet-list li:last-child, .rank-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    .label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 3px;
+    }
+    .value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .exp-card {
+      display: grid;
+      gap: 10px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(198,169,107,0.12);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .exp-card .time {
+      color: var(--accent-soft);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .exp-card .role {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .exp-card .desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .rank-list li {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .rank-no {
+      width: 58px;
+      min-height: 58px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(198,169,107,0.16), rgba(198,169,107,0.08));
+      border: 1px solid rgba(198,169,107,0.18);
+      color: var(--accent-soft);
+      font-weight: 800;
+      font-size: 19px;
+    }
+    .rank-content strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .rank-content span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .quote-box {
+      padding: 22px;
+      border-left: 4px solid var(--accent);
+      background: rgba(198,169,107,0.06);
+      border-radius: 0 14px 14px 0;
+      color: var(--text);
+    }
+    .footer {
+      margin-top: 18px;
+      padding: 26px 0 46px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 980px) {
+      .hero-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .topbar-inner {
+        padding: 10px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .nav { width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding-top: 48px; }
+      .hero-card, .hero-side, .panel { padding: 18px; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-title">Sheriff Bewerbung – Semir Inaktiv #97148</span>
+      </div>
+      <nav class="nav">
+        <a href="#profil">Profil</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#erfahrung">Erfahrung</a>
+        <a href="#ziele">Ziele</a>
+        <a href="#rangschema">Ränge</a>
+        <a href="#abteilungen">Abteilungen</a>
+        <a href="#warum-ich">Warum ich</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <h1>Bewerbung als<br>Sheriff of County</h1>
+          <p class="hero-sub">
+            Als engagierter, disziplinierter und zielstrebiger Bewerber möchte ich meinen Beitrag dazu leisten,
+            Sicherheit, Ordnung und Vertrauen im County dauerhaft zu stärken.
+          </p>
+        </div>
+        <aside class="hero-side hero-card">
+          <div>
+            <div class="mini-title"><strong>Bewerberstatus</strong></div>
+          </div>
+          <div class="stat-grid">
+            <div class="stat"><strong>20</strong><span>Alter</span></div>
+            <div class="stat"><strong>1,5Y</strong><span>Majestic RP Erfahrung</span></div>
+            <div class="stat"><strong>17</strong><span>Ränge im System</span></div>
+            <div class="stat"><strong>FIB</strong><span>Derzeitige Fraktion</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+    <section class="section" id="profil">
+      <div class="container">
+        <div class="section-head">
+          <div>
+                <h2 class="section-title">Persönliche Angaben</h2>
+          </div>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>IC DATEN</h3>
+            <ul class="meta-list">
+              <li><span class="label">Name (IC)</span><span class="value">Semir Inaktiv #97148</span></li>
+              <li><span class="label">Position</span><span class="value">Bewerber für Sheriff of County</span></li>
+              <li><span class="label">Ziel</span><span class="value">Sicherheit, Rechtsstaatlichkeit und Führung im County stärken</span></li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>OOC DATEN</h3>
+            <ul class="meta-list">
+              <li><span class="label">Name OOC</span><span class="value">Semir</span></li>
+              <li><span class="label">Alter</span><span class="value">20 Jahre</span></li>
+              <li><span class="label">Spielzeit & Erfahrung</span><span class="value">Ca. 1,5 Jahr auf Majestic RP sowie zusätzliche Erfahrung auf weiteren Projekten</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="motivation">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Meine Motivation</h2>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="quote-box">
+            Das LSCSD ist für mich das Fundament von Sicherheit, Rechtsstaatlichkeit und Stabilität
+            im County und in der Stadt. Ich sehe in der Arbeit als Sheriff nicht nur eine berufliche
+            Herausforderung, sondern eine echte Berufung.
+          </div>
+          <ul class="bullet-list" style="margin-top:16px;">
+            <li>Mein Ziel ist es, durch Professionalität, Teamfähigkeit und konsequentes Handeln zur Sicherheit aller Bürger beizutragen.</li>
+            <li>Besonders wichtig sind mir ein respektvoller Umgang mit der Bevölkerung, klare Kommunikation und die konsequente Einhaltung des Gesetzes.</li>
+            <li>Auch in stressigen oder brenzligen Situationen möchte ich als verlässliche, ruhige und führungsstarke Persönlichkeit auftreten.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="erfahrung">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Bisherige Erfahrung in staatlichen Fraktionen</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <article class="exp-card">
+            <div class="time">ca. 2 Monate</div>
+            <div class="role">LSPD - Tom SaintLaurent</div>
+            <div class="desc">HR Rang 10 als auch DU Rang 10</div>
+          </article>
+          <article class="exp-card">
+            <div class="time">ca. 1 Monat</div>
+            <div class="role">FIB - Robert Sneijder</div>
+            <div class="desc">HR Rang 12 als auch Corruption Office Rang 11</div>
+          </article>
+          <article class="exp-card">
+            <div class="time">ca. 2 Wochen</div>
+            <div class="role">FIB - Toby Delgado</div>
+            <div class="desc">HR als auch Corruption Office</div>
+          </article>
+          <article class="exp-card">
+            <div class="time">ca. 1 Monat</div>
+            <div class="role">LSCSD - Mohamed Khalifa</div>
+            <div class="desc">SED Rang 14, DU Rang 14 und dann die DU Leitung</div>
+          </article>
+          <article class="exp-card">
+            <div class="time">ca. 1,5 Monate</div>
+            <div class="role">FIB - DrLuna Walker</div>
+            <div class="desc">HRT Deputy Leitung Rang 17</div>
+          </article>
+          <article class="exp-card">
+            <div class="time">ca. 2 Monate</div>
+            <div class="role">FIB - Alex Strange</div>
+            <div class="desc">Corruption Office Division Chief</div>
+          </article>
+          <article class="exp-card">
+            <div class="time">ca. 3 Wochen</div>
+            <div class="role">LSCSD - Toby Alvarez</div>
+            <div class="desc">IAD Division Commander Rang 17</div>
+          </article>
+          <article class="exp-card">
+            <div class="time">derzeit</div>
+            <div class="role">FIB - Alexander Lorek</div>
+            <div class="desc">Corruption Office</div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="ziele">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Vision & Ziele im LSCSD</h2>
+          </div>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>Operative Ziele</h3>
+            <ul class="bullet-list">
+              <li>Strukturiertes Vorgehen im Streifendienst – Präsenz zeigen, Kontrolle durchsetzen, Bürger schützen</li>
+              <li>Teamarbeit fördern – klare Befehlsketten, gegenseitiger Respekt und Unterstützung</li>
+              <li>Effizienz steigern – durch gute Organisation und klare Dokumentation</li>
+              <li>Bürgernähe – Vertrauen der Bevölkerung durch deeskalierende Gespräche gewinnen</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Fachliche Entwicklung</h3>
+            <ul class="bullet-list">
+              <li>Spezialisierung ermöglichen – Ausbildung in Bereichen wie DU (Detective Unit) oder SEB (Special Enforcement Bureau)</li>
+              <li>Eventfreude – regelmäßige Teilnahme und Koordination von Events wie AirDrop, MCL und Ghettoevents über die SED</li>
+              <li>Professionelles Auftreten – intern wie extern als klare, verlässliche Führungslinie</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="rangschema">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Rangsystem des LSCSD</h2>
+            <div class="section-note">
+              17-Ränge-System, strukturiert nach Führungs-, Leitungs- und Ausbildungsebene.
+            </div>
+          </div>
+        </div>
+        <div class="grid-4">
+          <article class="panel">
+            <h3>Führungs- und Leitungsebene</h3>
+            <ul class="rank-list">
+              <li><div class="rank-no">17</div><div class="rank-content"><strong>Sheriff of County</strong><span>Höchste Führungsinstanz</span></div></li>
+              <li><div class="rank-no">16</div><div class="rank-content"><strong>Undersheriff of County</strong><span>Vertretung und operative Unterstützung der Leitung</span></div></li>
+              <li><div class="rank-no">15</div><div class="rank-content"><strong>Assistant Sheriff</strong><span>Leitende Managementfunktion</span></div></li>
+              <li><div class="rank-no">14</div><div class="rank-content"><strong>Division Chief</strong><span>Verantwortung für Divisionen und Bereiche</span></div></li>
+              <li><div class="rank-no">13</div><div class="rank-content"><strong>Deputy Division Chief</strong><span>Stellvertretende Divisionsleitung</span></div></li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Abteilungsränge</h3>
+            <ul class="rank-list">
+              <li><div class="rank-no">12</div><div class="rank-content"><strong>Area Commander</strong><span>Nach Entscheidung der Abteilungsleitung</span></div></li>
+              <li><div class="rank-no">11</div><div class="rank-content"><strong>Senior Deputy of IAD/HR</strong><span>Seniorfunktion innerhalb interner Abteilungen</span></div></li>
+              <li><div class="rank-no">10</div><div class="rank-content"><strong>Captain</strong><span>Leitungs- und Koordinationsrang</span></div></li>
+              <li><div class="rank-no">9</div><div class="rank-content"><strong>Sergeant II</strong><span>Erweiterte Führungsverantwortung</span></div></li>
+              <li><div class="rank-no">8</div><div class="rank-content"><strong>Sergeant I</strong><span>Erste Führungsebene</span></div></li>
+              <li><div class="rank-no">7</div><div class="rank-content"><strong>Deputy of IAD/HR</strong><span>Abteilungsbezogene Funktion</span></div></li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Ausbildungsränge</h3>
+            <ul class="rank-list">
+              <li><div class="rank-no">6</div><div class="rank-content"><strong>Deputy II</strong><span>Bis hier mit Ausbildungen erreichbar</span></div></li>
+              <li><div class="rank-no">5</div><div class="rank-content"><strong>Deputy of Media</strong><span>Medien- und Außendarstellung</span></div></li>
+              <li><div class="rank-no">4</div><div class="rank-content"><strong>Deputy I</strong><span>Vollwertiger aktiver Deputy</span></div></li>
+              <li><div class="rank-no">3</div><div class="rank-content"><strong>Junior Deputy</strong><span>Einstieg in den aktiven Dienst</span></div></li>
+              <li><div class="rank-no">2</div><div class="rank-content"><strong>Deputy in Trainee</strong><span>Ausbildungsphase</span></div></li>
+              <li><div class="rank-no">1</div><div class="rank-content"><strong>Suspended</strong><span>Disziplinarischer Status</span></div></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="abteilungen">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                  <h2 class="section-title">Abteilungen</h2>
+                </div>
+              </div>
+            <div class="grid-2">
+              <article class="panel dept-card" data-dept-key="patrolUnit" tabindex="0" role="button" aria-label="Mehr Infos zu Patrol unit öffnen">
+                <h3>Patrol Unit</h3>
+                <p class="dept-hint">Klicken für zusätzliche Informationen</p>
+              </article>
+              <article class="panel dept-card" data-dept-key="detectiveUnit" tabindex="0" role="button" aria-label="Mehr Infos zu Detective UNit öffnen">
+                <h3>Detective Unit</h3>
+                <p class="dept-hint">Klicken für zusätzliche Informationen</p>
+              </article>
+              <article class="panel dept-card" data-dept-key="internalAffairs" tabindex="0" role="button" aria-label="Mehr Infos zu Internal Affairs division öffnen">
+                <h3>Internal Affairs Division</h3>
+                <p class="dept-hint">Klicken für zusätzliche Informationen</p>
+              </article>
+              <article class="panel dept-card" data-dept-key="humanResources" tabindex="0" role="button" aria-label="Mehr Infos zu Human Ressources öffnen">
+                <h3>Human Ressources</h3>
+                <p class="dept-hint">Klicken für zusätzliche Informationen</p>
+              </article>
+              <article class="panel dept-card" data-dept-key="specialEnforcement" tabindex="0" role="button" aria-label="Mehr Infos zu Special enforement bureau öffnen">
+                <h3>Special Enforcement Bureau</h3>
+                <p class="dept-hint">Klicken für zusätzliche Informationen</p>
+              </article>
+            </div>
+          </div>
+    </section>
+    <div class="modal-backdrop" id="dept-modal" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dept-modal-title">
+        <div class="modal-head">
+          <h3 class="modal-title" id="dept-modal-title">Abteilung</h3>
+          <button type="button" class="modal-close" id="dept-modal-close" aria-label="Popup schließen">×</button>
+        </div>
+        <div class="modal-body" id="dept-modal-body"></div>
+      </div>
+    </div>
+    <section class="section" id="warum-ich">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Was mich auszeichnet & warum ich</h2>
+          </div>
+        </div>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>Stärken</h3>
+            <ul class="bullet-list">
+              <li>Disziplin und Belastbarkeit – auch in Stresssituationen behalte ich einen kühlen Kopf</li>
+              <li>Erfahrung im Staatsdienst – taktisches Verständnis und strukturiertes Arbeiten</li>
+              <li>Kommunikationsstärke – klare Befehle, respektvoller Umgang mit Kollegen und Bürgern</li>
+              <li>Teamgeist – Zusammenarbeit ist für mich der Schlüssel zum Erfolg</li>
+              <li>Lernbereitschaft – offen für Schulungen, Kritik und Weiterentwicklung</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Warum ich?</h3>
+            <p>
+              Ich bin überzeugt, die Werte des LSCSD – Integrität, Professionalität und Gerechtigkeit –
+              authentisch vertreten zu können. Mein Ziel ist es nicht nur, Teil des Teams zu sein,
+              sondern das Department aktiv weiterzuentwickeln und nachhaltig zu stärken.
+            </p>
+            <p>
+              Ich danke Ihnen für die Zeit und die Möglichkeit, mich vorzustellen, und stehe
+              selbstverständlich für ein persönliches Gespräch jederzeit zur Verfügung.
+            </p>
+            <p style="margin-top:18px; color: var(--accent-soft); font-weight: 800;">
+              Mit freundlichen Grüßen<br />
+              Semir Inaktiv #97148
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      © 2026 LSCSD Bewerbung // Semir Inaktiv #97148
+    </div>
+  </footer>
+  <script>
+    const deptCards = document.querySelectorAll('.dept-card');
+    const modal = document.getElementById('dept-modal');
+    const modalTitle = document.getElementById('dept-modal-title');
+    const modalBody = document.getElementById('dept-modal-body');
+    const modalClose = document.getElementById('dept-modal-close');
+
+
+
+
+    const patrolUnitInfo = 'Patrol Unit sichert die Grundversorgung des Countys: Verkehrskontrollen, First Response, Präsenzstreifen und schnelle Lagebewertung bei Notrufen.';
+    const detectiveUnitInfo = 'Die Detective Unit führt Ermittlungen durch, sammelt Beweise, koordiniert Observationen und arbeitet eng mit anderen staatlichen Stellen zusammen.';
+    const internalAffairsInfo = 'Internal Affairs überwacht interne Standards, untersucht Verstöße im Department und stellt Professionalität, Integrität und Transparenz sicher.';
+    const humanResourcesInfo = 'Human Ressources steuert Bewerbungen, Onboarding, Personalentwicklung und Feedbackprozesse, damit Teams stabil und leistungsfähig bleiben.';
+    const specialEnforcementInfo = 'Das Special Enforcement Bureau übernimmt Hochrisikolagen, Spezialzugriffe und taktische Einsätze mit erhöhten Anforderungen an Koordination und Disziplin.';
+
+
+
+
+    const departmentInfos = {
+      patrolUnit: { title: 'Patrol Unit', text: patrolUnitInfo },
+      detectiveUnit: { title: 'Detective Unit', text: detectiveUnitInfo },
+      internalAffairs: { title: 'Internal Affairs Division', text: internalAffairsInfo },
+      humanResources: { title: 'Human Ressources', text: humanResourcesInfo },
+      specialEnforcement: { title: 'Special Enforcement Bureau', text: specialEnforcementInfo }
+    };
+
+
+
+
+    function openDeptModal(title, text) {
+      modalTitle.textContent = title;
+      modalBody.textContent = text;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      modalClose.focus();
+    }
+
+
+
+
+    function closeDeptModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+
+
+
+    deptCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const key = card.dataset.deptKey;
+        const info = departmentInfos[key];
+        openDeptModal(info.title, info.text);
+      });
+
+
+
+
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          const key = card.dataset.deptKey;
+          const info = departmentInfos[key];
+          openDeptModal(info.title, info.text);
+        }
+      });
+    });
+
+
+
+
+    modalClose.addEventListener('click', closeDeptModal);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeDeptModal();
+      }
+    });
+
+
+
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('open')) {
+        closeDeptModal();
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
