@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LSCSD // Bewerbung Sheriff of County</title>
-  <meta name="description" content="Bewerbung als Sheriff of County – Semir Inaktiv #97148" />
+  <title>LSCSD  Bewerbung Sheriff of County</title>
+  <link rel="icon" type="image/png" href="LSCSD-Logo.png" />
+  <meta name="description" content="Bewerbung als Sheriff of County Semir Inaktiv #97148" />
   <style>
     :root {
       --bg: #0e100f;
@@ -427,7 +427,7 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <span class="brand-title">Sheriff Bewerbung - Semir Inaktiv #97148</span>
+        <span class="brand-title">Sheriff Bewerbung Semir Inaktiv #97148</span>
       </div>
       <nav class="nav">
         <a href="#profil">Profil</a>
@@ -676,7 +676,7 @@
       <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dept-modal-title">
         <div class="modal-head">
           <h3 class="modal-title" id="dept-modal-title">Abteilung</h3>
-          <button type="button" class="modal-close" id="dept-modal-close" aria-label="Popup schließen">×</button>
+          <button type="button" class="modal-close" id="dept-modal-close" aria-label="Popup schließen">x</button>
         </div>
         <div class="modal-body" id="dept-modal-body"></div>
       </div>
@@ -734,11 +734,19 @@
 
 
 
+
+
+
+
     const patrolUnitInfo = 'Patrol Unit sichert die Grundversorgung des Countys: Verkehrskontrollen, First Response, Präsenzstreifen und schnelle Lagebewertung bei Notrufen.';
     const detectiveUnitInfo = 'Die Detective Unit führt Ermittlungen durch, sammelt Beweise, koordiniert Observationen und arbeitet eng mit anderen staatlichen Stellen zusammen.';
     const internalAffairsInfo = 'Internal Affairs überwacht interne Standards, untersucht Verstöße im Department und stellt Professionalität, Integrität und Transparenz sicher.';
     const humanResourcesInfo = 'Human Ressources steuert Bewerbungen, Onboarding, Personalentwicklung und Feedbackprozesse, damit Teams stabil und leistungsfähig bleiben.';
     const specialEnforcementInfo = 'Das Special Enforcement Bureau übernimmt Hochrisikolagen, Spezialzugriffe und taktische Einsätze mit erhöhten Anforderungen an Koordination und Disziplin.';
+
+
+
+
 
 
 
@@ -754,6 +762,10 @@
 
 
 
+
+
+
+
     function openDeptModal(title, text) {
       modalTitle.textContent = title;
       modalBody.textContent = text;
@@ -761,6 +773,10 @@
       modal.setAttribute('aria-hidden', 'false');
       modalClose.focus();
     }
+
+
+
+
 
 
 
@@ -773,12 +789,20 @@
 
 
 
+
+
+
+
     deptCards.forEach((card) => {
       card.addEventListener('click', () => {
         const key = card.dataset.deptKey;
         const info = departmentInfos[key];
         openDeptModal(info.title, info.text);
       });
+
+
+
+
 
 
 
@@ -796,12 +820,20 @@
 
 
 
+
+
+
+
     modalClose.addEventListener('click', closeDeptModal);
     modal.addEventListener('click', (event) => {
       if (event.target === modal) {
         closeDeptModal();
       }
     });
+
+
+
+
 
 
 
@@ -814,3 +846,8 @@
   </script>
 </body>
 </html>
+
+
+
+
+
